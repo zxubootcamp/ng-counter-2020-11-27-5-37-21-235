@@ -1,2 +1,3 @@
-<button (click)="addByOne()">+</button><label>number: {{count}}</label><button (click)="reduceByOne()">-</button>
+<button *ngIf="this.isPlusButtonVisible" (click)="addByOne()">+</button><label style="background-color: {{numberBackgroundColor}}">number: {{count}}</label><button
+  *ngIf="this.isMinusButtonVisible" (click)="reduceByOne()">-</button>
 <!-- <p>counter works!</p> -->

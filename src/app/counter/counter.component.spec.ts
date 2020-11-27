@@ -8,9 +8,9 @@ describe('CounterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CounterComponent ]
+      declarations: [CounterComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -24,24 +24,84 @@ describe('CounterComponent', () => {
   });
 
   it('should increase one when click add button', () => {
-    //given
+    // given
     component.count = 0;
 
-    //when
+    // when
     component.addByOne();
 
-    //then
+    // then
     expect(component.count).toBe(1);
   });
 
   it('should decrease one when click reduce button', () => {
-    //given
+    // given
     component.count = 0;
 
-    //when
+    // when
     component.reduceByOne();
 
-    //then
+    // then
     expect(component.count).toBe(-1);
   });
+
+  it('should isVisible turn false when count is less than zero', () => {
+    // given
+    component.isMinusButtonVisible = true;
+    component.count = 0;
+
+    // when
+    component.reduceByOne();
+
+    // then
+    expect(component.isMinusButtonVisible).toBe(false);
+  });
+
+  it('should isVisible turn true when count is greater than or equals to zero', () => {
+    // given
+    component.isMinusButtonVisible = false;
+    component.count = -1;
+
+    // when
+    component.addByOne();
+
+    // then
+    expect(component.isMinusButtonVisible).toBe(true);
+  });
+
+  it('should plus button hide when count is greater than ten', () => {
+    // given
+    component.isPlusButtonVisible = true;
+    component.count = 10;
+
+    // when
+    component.addByOne();
+
+    // then
+    expect(component.isPlusButtonVisible).toBe(false);
+  });
+
+  it('should plus button appear when count is less than or equals to ten', () => {
+    // given
+    component.isPlusButtonVisible = false;
+    component.count = 11;
+
+    // when
+    component.reduceByOne();
+
+    // then
+    expect(component.isPlusButtonVisible).toBe(true);
+  });
+
+  it('should change number in text to green when count is less than 0', () => {
+    // given
+    component.count = 0;
+
+    // when
+    component.reduceByOne();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('green');
+  });
+
 });
