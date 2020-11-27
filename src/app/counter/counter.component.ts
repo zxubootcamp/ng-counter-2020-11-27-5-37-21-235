@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
 
-  count = -1;
+  count = 0;
 
   isMinusButtonVisible = this.count < 0 ? false : true;
 
@@ -22,8 +22,9 @@ export class CounterComponent implements OnInit {
 
   addByOne(): void {
     this.count++;
-    if (this.count >= 0) {
+    if (this.count >= 0 && this.count <= 10) {
       this.isMinusButtonVisible = true;
+      this.numberBackgroundColor = 'white';
     }
     if (this.count > 10) {
       this.isPlusButtonVisible = false;
@@ -37,9 +38,16 @@ export class CounterComponent implements OnInit {
       this.isMinusButtonVisible = false;
       this.numberBackgroundColor = 'green';
     }
-    if (this.count <= 10 && this.count > 0) {
+    if (this.count <= 10 && this.count >= 0) {
       this.isPlusButtonVisible = true;
       this.numberBackgroundColor = 'white';
     }
+  }
+
+  resetCount(): void {
+    this.count = 0;
+    this.numberBackgroundColor = 'white';
+    this.isPlusButtonVisible = true;
+    this.isMinusButtonVisible = true;
   }
 }

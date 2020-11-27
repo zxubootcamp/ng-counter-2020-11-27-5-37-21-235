@@ -127,4 +127,26 @@ describe('CounterComponent', () => {
     expect(component.numberBackgroundColor).toBe('white');
   });
 
+  it('should change number in text to white when count is greater than 0', () => {
+    // given
+    component.numberBackgroundColor = 'red';
+    component.count = 0;
+
+    // when
+    component.addByOne();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('white');
+  });
+
+  it('should change number in text to 0 when click reset button', () => {
+    // given
+    component.count = 5;
+
+    // when
+    component.resetCount();
+
+    // then
+    expect(component.count).toBe(0);
+  });
 });
