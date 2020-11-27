@@ -37,8 +37,9 @@ export class CounterComponent implements OnInit {
       this.isMinusButtonVisible = false;
       this.numberBackgroundColor = 'green';
     }
-    if (this.count <= 10) {
+    if (this.count <= 10 && this.count > 0) {
       this.isPlusButtonVisible = true;
+      this.numberBackgroundColor = 'white';
     }
   }
 }

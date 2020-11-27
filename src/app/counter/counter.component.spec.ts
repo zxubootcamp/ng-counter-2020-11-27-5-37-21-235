@@ -115,4 +115,16 @@ describe('CounterComponent', () => {
     expect(component.numberBackgroundColor).toBe('red');
   });
 
+  it('should change number in text to white when count is less than or equals to 10', () => {
+    // given
+    component.numberBackgroundColor = 'red';
+    component.count = 11;
+
+    // when
+    component.reduceByOne();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('white');
+  });
+
 });
