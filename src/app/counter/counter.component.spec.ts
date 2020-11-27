@@ -104,4 +104,15 @@ describe('CounterComponent', () => {
     expect(component.numberBackgroundColor).toBe('green');
   });
 
+  it('should change number in text to red when count is greater than 10', () => {
+    // given
+    component.count = 10;
+
+    // when
+    component.addByOne();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('red');
+  });
+
 });
