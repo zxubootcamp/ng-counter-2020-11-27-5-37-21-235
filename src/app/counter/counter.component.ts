@@ -24,26 +24,26 @@ export class CounterComponent implements OnInit {
     }
   }
 
+  changeNumberBackgroundColor(): void {
+    if (this.count < 0) {
+      this.numberBackgroundColor = 'green';
+    } else if (this.count >= 0 && this.count <= 10) {
+      this.numberBackgroundColor = 'white';
+    } else {
+      this.numberBackgroundColor = 'red';
+    }
+  }
+
   increaseCount(): void {
     this.count++;
     this.changeButtonShownStatus();
-    if (this.count >= 0) {
-      this.numberBackgroundColor = 'white';
-    }
-    if (this.count > 10) {
-      this.numberBackgroundColor = 'red';
-    }
+    this.changeNumberBackgroundColor();
   }
 
   decreaseCount(): void {
     this.count--;
     this.changeButtonShownStatus();
-    if (this.count <= 10) {
-      this.numberBackgroundColor = 'white';
-    }
-    if (this.count < 0) {
-      this.numberBackgroundColor = 'green';
-    }
+    this.changeNumberBackgroundColor();
   }
 
   constructor() { }
