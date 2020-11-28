@@ -44,4 +44,92 @@ describe('CounterComponent', () => {
     // then
     expect(component.count).toBe(-1);
   });
+
+  it('should isMinusButtonShown to be false when number is less than 0', () => {
+    // given
+    component.count = 0;
+
+    // when
+    component.decreaseCount();
+
+    // then
+    expect(component.isMinusButtonShown).toBe(false);
+  });
+
+  it('should isMinusButtonShown to be true when number is greater tha or equal to 0', () => {
+    // given
+    component.count = -1;
+
+    // when
+    component.increaseCount();
+
+    // then
+    expect(component.isMinusButtonShown).toBe(true);
+  });
+
+  it('should isAddButtonShown to be false when number is greater than 10', () => {
+    // given
+    component.count = 10;
+
+    // when
+    component.increaseCount();
+
+    // then
+    expect(component.isAddButtonShown).toBe(false);
+  });
+
+  it('should isAddButtonShown to be true when number is less than or equal to 10', () => {
+    // given
+    component.count = 11;
+
+    // when
+    component.decreaseCount();
+
+    // then
+    expect(component.isAddButtonShown).toBe(true);
+  });
+
+  it('should numberBackgroundColor to green when number is less than 0', () => {
+    // given
+    component.count = 0;
+
+    // when
+    component.decreaseCount();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('green');
+  });
+
+  it('should numberBackgroundColor to white when number is greater than or equal to 0', () => {
+    // given
+    component.count = -1;
+
+    // when
+    component.increaseCount();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('white');
+  });
+
+  it('should numberBackgroundColor to red when number is greater than 10', () => {
+    // given
+    component.count = 10;
+
+    // when
+    component.increaseCount();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('red');
+  });
+
+  it('should numberBackgroundColor to white when number is less than or equal to 10', () => {
+    // given
+    component.count = 11;
+
+    // when
+    component.decreaseCount();
+
+    // then
+    expect(component.numberBackgroundColor).toBe('white');
+  });
 });
