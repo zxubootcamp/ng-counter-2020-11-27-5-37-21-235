@@ -132,4 +132,15 @@ describe('CounterComponent', () => {
     // then
     expect(component.numberBackgroundColor).toBe('white');
   });
+
+  it('should reset number to 0 when click reset', () => {
+    // given
+    component.count = 10;
+
+    // when
+    component.reset();
+
+    // then
+    expect(component.count).toBe(0);
+  });
 });

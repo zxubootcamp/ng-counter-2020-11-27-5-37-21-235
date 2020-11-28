@@ -46,6 +46,12 @@ export class CounterComponent implements OnInit {
     this.changeNumberBackgroundColor();
   }
 
+  reset(): void {
+    this.count = 0;
+    this.changeButtonShownStatus();
+    this.changeNumberBackgroundColor();
+  }
+
   constructor() { }
 
   ngOnInit(): void {
