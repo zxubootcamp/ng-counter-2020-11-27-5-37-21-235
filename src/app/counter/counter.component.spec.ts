@@ -141,12 +141,13 @@ describe('CounterComponent', () => {
 
   it('should change number in text to 0 when click reset button', () => {
     // given
-    component.count = 5;
+    component.count = 10;
 
     // when
     component.resetCount();
 
     // then
     expect(component.count).toBe(0);
+    expect(component.numberBackgroundColor).toBe('white');
   });
 });
